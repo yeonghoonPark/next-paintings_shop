@@ -5,7 +5,7 @@ import { FaAngleDown } from "react-icons/fa";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-export default function SignInOutBtn({ session }) {
+export default function SignInOutBtn({ session, signedUser }) {
   const navRef = useRef();
   const [IsNavShow, setIsNavShow] = useState(false);
 
@@ -15,7 +15,6 @@ export default function SignInOutBtn({ session }) {
 
   useEffect(() => {
     window.document.addEventListener("click", onHandleNav);
-
     return () => window.document.removeEventListener("click", onHandleNav);
   }, [IsNavShow]);
 
@@ -24,14 +23,20 @@ export default function SignInOutBtn({ session }) {
       <div className='user' onClick={() => setIsNavShow(!IsNavShow)}>
         <div>
           {session.user.name}
+          <img src={session.user.image} alt={session.user.name} />
           <FaAngleDown className='fa-angle-down' />
           <nav ref={navRef} style={{ display: IsNavShow ? "block" : "none" }}>
             <ul>
               <li>
-                <Link href='/'>My Page</Link>
+                <Link href={`/user_info/${signedUser._id}`}>My Page</Link>
               </li>
-              <li className='sign-out' onClick={signOut}>
-                SignOut
+              <li
+                className='sign-out'
+                onClick={() =>
+                  signOut({ callbackUrl: `${window.location.origin}` })
+                }
+              >
+                Sign Out
               </li>
             </ul>
           </nav>
@@ -41,7 +46,7 @@ export default function SignInOutBtn({ session }) {
   } else {
     return (
       <button className='sign-in' type='text' onClick={signIn}>
-        SignIn
+        Sign In
       </button>
     );
   }

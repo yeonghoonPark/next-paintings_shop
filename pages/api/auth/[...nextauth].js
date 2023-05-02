@@ -5,13 +5,17 @@ import GithubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
+import { redirect } from "next/dist/server/api-utils";
 
 export const authOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        email: {
+          label: "Email",
+          type: "text",
+        },
         password: {
           label: "Password",
           type: "password",
@@ -22,7 +26,7 @@ export const authOptions = {
       async authorize(credentials) {
         const db = (await connectDB).db("paintings_shop");
         const user = await db
-          .collection("user_cred")
+          .collection("users")
           .findOne({ email: credentials.email });
         if (!user) {
           console.log("This user does not exist.");
@@ -65,9 +69,9 @@ export const authOptions = {
         token.user = {};
         token.user.name = user.name;
         token.user.email = user.email;
-        // token.user.role = "테스트";
         token.user.image = user.image;
         token.user.mailage = user.mailage;
+        token.user.role = user.role;
       }
       return token;
     },

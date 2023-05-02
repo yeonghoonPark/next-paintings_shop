@@ -3,10 +3,17 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
 import SignInOutBtn from "./components/header/SignInOutBtn";
 import { FaCoins, FaHeart, FaShoppingCart } from "react-icons/fa";
+import { connectDB } from "@/util/database";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
+  const db = (await connectDB).db("paintings_shop");
+  const signedUser = await db
+    .collection("users")
+    .findOne({ email: session?.user.email });
+  session && (signedUser._id = signedUser._id.toString());
   console.log("Header컴포넌트 session = ", session);
+  console.log("Header컴포넌트 signedUser = ", signedUser);
 
   return (
     <header>
@@ -20,11 +27,13 @@ export default async function Header() {
         </div>
         <div className='right-menu'>
           {!session ? (
-            <Link href='/'>SignUp</Link>
+            <Link href='/sign_up'>Sign Up</Link>
           ) : (
             <>
               <span title='My Mileage'>
-                <FaCoins className='fa-coins' /> {session.user.mailage} ₩
+                <Link href={`/user_info/${signedUser._id}`}>
+                  <FaCoins className='fa-coins' />
+                </Link>
               </span>
               <span title='My Favorites'>
                 <Link href='/'>
@@ -38,7 +47,7 @@ export default async function Header() {
               </span>
             </>
           )}
-          <SignInOutBtn session={session} />
+          <SignInOutBtn session={session} signedUser={signedUser} />
         </div>
       </nav>
     </header>
