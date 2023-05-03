@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
-import SignInOutBtn from "./components/header/SignInOutBtn";
+import SignInOutBtn from "./SignInOutBtn";
 import { FaCoins, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { connectDB } from "@/util/database";
 

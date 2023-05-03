@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 //=================================
 //             reset
 //=================================
@@ -44,7 +44,9 @@ li {
   --color-pink: #d63384;
   --color-orange: #f35129;
   --color-peach: #f07474;
-  --color-yellow: #ffc107;
+  --color-yellow: #fffd61;
+  --color-dark-yellow: #ffc107;
+  --color-beige: #f5f5dc;
   --color-blue: #0d6efd;
   --color-green: #198754;
   --color-sky: #5dbdfd;
@@ -86,14 +88,17 @@ li {
   width: 100%;
   margin: 0 0 0.75rem;
   padding: 0.75rem 1rem;
-  border-color: rgba(0, 0, 0, 0.1);
+  border: 2px solid rgba(0, 0, 0, 0.1);
+
   border-radius: 0.5rem;
   transition: all 0.1s ease-in-out;
   // font-weight: 500;
   cursor: pointer;
 
   &:hover {
+    color: var(--color-white);
     border-color: var(--color-orange);
+    background-color: var(--color-orange);
   }
 
   &.btn-md {
@@ -216,14 +221,15 @@ header {
         all: unset;
         font-weight: 500;
         padding: 0.5rem;
-        border: 1px solid var(--color-gray-500);
+        border: 2px solid var(--color-gray-500);
         border-radius: 0.5rem;
         color: var(--color-gray-500);
         cursor: pointer;
 
         &:hover {
-          color: var(--color-orange);
-          border: 1px solid var(--color-orange);
+          color: var(--color-white);
+          background-color: var(--color-orange);
+          border: 2px solid var(--color-orange);
         }
       }
     }
@@ -270,6 +276,7 @@ header {
         position: absolute;
         top: 150%;
         right: 0;
+        z-index: 1;
         width: 120px;
         box-shadow: 0 6px 12px -4px var(--color-gray-500);
         border-radius: 0.5rem;
@@ -291,6 +298,71 @@ header {
           text-align: center;
         }
       }
+    }
+  }
+}
+
+//=================================
+//          home-page
+//=================================
+.home-page {
+  /* slider */
+  .slider {
+    position: relative;
+
+    padding-bottom: 30%;
+
+    .slide {
+      position: absolute;
+      opacity: 0;
+      transition: 2s;
+
+      .slide-text {
+        position: absolute;
+        font-family: "Lobster", cursive;
+        font-size: 2rem;
+        color: #c41c00;
+
+        &.slide-text01 {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          color: var(--color-yellow);
+          text-shadow: 3px 3px 3px var(--color-gray-900);
+        }
+
+        &.slide-text02 {
+          top: 2rem;
+          left: 2rem;
+          color: var(--color-pink);
+          text-shadow: 3px 3px 3px var(--color-gray-900);
+        }
+
+        &.slide-text03 {
+          right: 2rem;
+          bottom: 2rem;
+          color: var(--color-beige);
+          text-shadow: 3px 3px 3px var(--color-gray-900);
+        }
+
+        &.slide-text04 {
+          top: 2rem;
+          right: 2rem;
+          color: var(--color-white);
+          text-shadow: 3px 3px 3px var(--color-dark-yellow);
+        }
+
+        &.slide-text05 {
+          left: 2rem;
+          bottom: 2rem;
+          color: var(--color-white);
+          text-shadow: 3px 3px 3px var(--color-orange);
+        }
+      }
+    }
+
+    .slide-active {
+      opacity: 1;
     }
   }
 }
