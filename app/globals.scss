@@ -52,6 +52,7 @@ li {
   --color-sky: #5dbdfd;
   --color-sky-blue: #cfe2ff;
 
+  --color-dark-red: #ac0b0b;
   --color-dark-orange: #c41c00;
   --color-dark-blue: #1b1b1f;
 
@@ -69,6 +70,7 @@ li {
   max-width: 1200px;
   min-width: 768px;
   margin: 0 auto;
+  margin-top: 65.97px;
   padding: 1.5rem;
 }
 
@@ -169,6 +171,11 @@ li {
 //            header
 //=================================
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
   background-color: var(--color-white);
   box-shadow: 0 4px 4px -4px var(--color-black);
 
@@ -305,12 +312,28 @@ header {
 //=================================
 //          home-page
 //=================================
+@keyframes zoom {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .home-page {
-  /* slider */
+  //=================================
+  //            slider
+  //=================================
+  hr {
+    border: 1px solid var(--color-orange);
+  }
   .slider {
     position: relative;
-
-    padding-bottom: 30%;
+    padding-bottom: 28.1%;
 
     .slide {
       position: absolute;
@@ -363,6 +386,146 @@ header {
 
     .slide-active {
       opacity: 1;
+    }
+  }
+
+  //=================================
+  //            piece
+  //=================================
+  .piece {
+    // background-color: red;
+
+    display: flex;
+    align-items: center;
+
+    .piece-left {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 25%;
+
+      h2 {
+        font-size: 2rem;
+        border-bottom: 2px solid var(--color-black);
+        user-select: none;
+      }
+    }
+
+    .piece-right {
+      display: flex;
+      gap: 3rem;
+      width: 75%;
+
+      .piece-watercolor,
+      .piece-oilcolor {
+        width: 50%;
+      }
+
+      h3 {
+        user-select: none;
+        font-family: "Lobster", cursive;
+        font-size: 1.5rem;
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      img {
+        box-shadow: 5px 5px 10px var(--color-gray-500);
+      }
+
+      img:hover {
+        animation: zoom 0.5s ease;
+      }
+
+      p {
+        font-family: "Lobster", cursive;
+        padding: 2rem 0;
+      }
+    }
+  }
+
+  //=================================
+  //          new-arrival
+  //=================================
+  .new-arrival {
+    h2 {
+      padding: 2rem 0;
+      font-family: "Lobster", cursive;
+      font-size: 2rem;
+      text-align: center;
+      user-select: none;
+    }
+
+    .product {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      margin: 0 auto;
+
+      .product-card {
+        position: relative;
+        width: 25%;
+        padding: 1rem 0;
+
+        &:hover .product_img {
+          animation: zoom 0.5s ease;
+        }
+
+        .product_img {
+          box-shadow: 5px 5px 10px var(--color-gray-500);
+        }
+
+        h4 {
+          padding: calc(0.5rem + 4px) 0 0.5rem 0;
+          font-family: "Lobster", cursive;
+          font-size: 2rem;
+        }
+
+        h5 {
+          padding: 0.5rem 0;
+          font-size: 1rem;
+          font-weight: bold;
+        }
+
+        p {
+          padding: 0.25rem 0;
+          font-size: 0.8rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          color: var(--color-gray-700);
+        }
+
+        .new_mark {
+          position: absolute;
+          top: -6%;
+          right: -20%;
+          width: 25%;
+        }
+
+        .price {
+          text-align: center;
+          font-size: 1rem;
+          color: var(--color-orange);
+          border: 3px solid transparent;
+        }
+
+        .sold-out {
+          text-align: center;
+          font-size: 1rem;
+          color: var(--color-dark-red);
+          border: 3px solid var(--color-dark-red);
+        }
+
+        hr {
+          margin: 0.5rem 0;
+          height: 1px;
+          border-width: 1px 0px 0px 0px;
+          border-style: solid;
+          border-color: var(--color-gray-500);
+        }
+      }
     }
   }
 }

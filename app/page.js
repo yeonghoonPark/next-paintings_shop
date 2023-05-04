@@ -1,5 +1,9 @@
 // import { connectDB } from "@/util/database";
 import Slider from "./components/homepage/slider/Slider";
+import Piece from "./components/homepage/piece/Piece";
+import NewArrival from "./components/homepage/new-arrival/NewArrival";
+
+// import { FaHeart } from "react-icons/fa";
 
 export default async function HomePage() {
   // const db = (await connectDB).db("paintings_shop");
@@ -8,13 +12,9 @@ export default async function HomePage() {
   return (
     <div className='container home-page'>
       <Slider />
-
-      <section className='piece'>
-        <div>
-          <h2>Piece</h2>
-        </div>
-        <div></div>
-      </section>
+      <Piece />
+      <hr />
+      <NewArrival />
     </div>
   );
 }

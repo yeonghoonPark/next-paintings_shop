@@ -14,7 +14,7 @@ export default async function UserInfo(props) {
   session && (signedUser._id = signedUser._id.toString());
 
   return (
-    <div>
+    <div className='container'>
       <MileageChargingPage signedUser={signedUser} />
     </div>
   );
