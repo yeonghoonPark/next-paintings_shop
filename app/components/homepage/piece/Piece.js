@@ -7,7 +7,7 @@ export default function Piece() {
       <div className='piece-right'>
         <div className='piece-watercolor'>
           <h3>Watercolor</h3>
-          <img src='/images/banner/banner_watercolor.jpg' alt='watercolor' />
+          <img src='/images/piece/piece_watercolor.jpg' alt='watercolor' />
           <p>
             Watercolor is a type of paint that you can use to solve in water, or
             you can paint with it, so look at a variety of watercolors.
@@ -15,7 +15,7 @@ export default function Piece() {
         </div>
         <div className='piece-oilcolor'>
           <h3>Oilcolor</h3>
-          <img src='/images/banner/banner_oilcolor.jpg' alt='oilcolor' />
+          <img src='/images/piece/piece_oilcolor.jpg' alt='oilcolor' />
           <p>
             It is a method loved by artists even today because it can be painted
             using oil-based paint, painted several times, and expressed using a

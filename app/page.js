@@ -3,8 +3,6 @@ import Slider from "./components/homepage/slider/Slider";
 import Piece from "./components/homepage/piece/Piece";
 import NewArrival from "./components/homepage/new-arrival/NewArrival";
 
-// import { FaHeart } from "react-icons/fa";
-
 export default async function HomePage() {
   // const db = (await connectDB).db("paintings_shop");
   // const data = await db.collection("test").find().toArray();

@@ -23,7 +23,7 @@ export default async function Header() {
             <img src='/images/logo.png' />
           </div>
           <Link href='/'>Home</Link>
-          <Link href='/'>Shop</Link>
+          <Link href='/shop'>Shop</Link>
         </div>
         <div className='right-menu'>
           {!session ? (
