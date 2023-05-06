@@ -1,22 +1,52 @@
 "use client";
 
 import { addComma } from "@/app/functions/common";
-// import { useState, useRef } from "react";
+import { useEffect } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 export default function ProductDetail({ data }) {
+  const setCursorEvent = (el, propertyVal) => (el.style.cursor = propertyVal);
+
+  useEffect(() => {
+    const transformWrapper = document.querySelector(".react-transform-wrapper");
+    transformWrapper.addEventListener("mouseover", () => {
+      setCursorEvent(transformWrapper, "grab");
+    });
+    transformWrapper.addEventListener("mousedown", () => {
+      setCursorEvent(transformWrapper, "grabbing");
+    });
+    transformWrapper.addEventListener("mouseup", () => {
+      setCursorEvent(transformWrapper, "grab");
+    });
+
+    return () => {
+      transformWrapper.removeEventListener("mouseover", () => {
+        setCursorEvent(transformWrapper, "grab");
+      });
+      transformWrapper.removeEventListener("mousedown", () => {
+        setCursorEvent(transformWrapper, "grabbing");
+      });
+      transformWrapper.removeEventListener("mouseup", () => {
+        setCursorEvent(transformWrapper, "grab");
+      });
+    };
+  }, []);
+
   return (
     <section className='product-detail'>
       <div className='item-detail-box'>
         <div className='item-detail-left'>
-          <img src={data.image} alt={data.product_name} />
+          <TransformWrapper initialScale={1} minScale={1} maxScale={8}>
+            <TransformComponent>
+              <img src={data.image} alt={data.product_name} />
+            </TransformComponent>
+          </TransformWrapper>
         </div>
 
         <div className='item-detail-right'>
           <h4>{data.product_name}</h4>
-
           <hr />
-
           <table>
             <caption>Product Info</caption>
             <tbody>
@@ -28,6 +58,14 @@ export default function ProductDetail({ data }) {
                 <th>Painting's Type</th>
                 <td className={`paintings-type ${data.paintings_type}`}>
                   {data.paintings_type}
+                  {data.is_new && (
+                    <img
+                      src='/images/mark/new_mark.png'
+                      alt='new_mark'
+                      title='New'
+                      style={{ width: "20px", marginLeft: "1rem" }}
+                    />
+                  )}
                 </td>
               </tr>
               <tr>

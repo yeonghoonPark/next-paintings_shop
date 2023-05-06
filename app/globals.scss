@@ -94,7 +94,6 @@ li {
 
   border-radius: 0.5rem;
   transition: all 0.1s ease-in-out;
-  // font-weight: 500;
   cursor: pointer;
 
   &:hover {
@@ -210,20 +209,18 @@ li {
 //=================================
 .item-detail-box {
   display: flex;
-  // justify-content: space-between;
-  position: relative;
+  gap: 2rem;
 
   .item-detail-left {
-    width: 50%;
+    width: 60%;
 
-    img {
+    .react-transform-wrapper {
       box-shadow: 5px 5px 5px var(--color-gray-500);
     }
   }
 
   .item-detail-right {
-    width: 50%;
-    padding-left: 5rem;
+    width: 40%;
 
     h4 {
       font-family: "Lobster", cursive;
@@ -467,10 +464,6 @@ header {
         background-clip: content-box, border-box;
       }
 
-      // .fa-angle-down {
-      //   margin-left: 0.5rem;
-      // }
-
       nav {
         position: absolute;
         top: 150%;
@@ -536,7 +529,6 @@ header {
         position: absolute;
         font-family: "Lobster", cursive;
         font-size: 2rem;
-        // color: #c41c00;
 
         &.slide-text01 {
           top: 50%;
