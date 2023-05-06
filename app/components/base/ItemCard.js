@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function ItemCard({ item }) {
   return (
     <div className='item-card' key={item._id}>
-      <Link href={"/"}>
+      <Link prefetch={false} href={`/shop_detail/${item._id}`}>
         <img
           className='item-img'
           src={`${item.image}`}
@@ -13,7 +13,9 @@ export default function ItemCard({ item }) {
 
         <h4>{item.product_name}</h4>
         <h5>{item.producer}</h5>
-        <p>{item.paintings_type}</p>
+        <p className={`paintings-type ${item.paintings_type}`}>
+          {item.paintings_type}
+        </p>
         <p>{item.size} (cm)</p>
         {item.is_new && (
           <img className='new_mark' src={"/images/mark/new_mark.png"} />

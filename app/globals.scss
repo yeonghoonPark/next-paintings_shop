@@ -123,7 +123,7 @@ li {
 }
 
 //=================================
-//          item-card
+//          item-box
 //=================================
 .item-box {
   display: flex;
@@ -163,6 +163,15 @@ li {
       font-weight: 500;
       text-transform: capitalize;
       color: var(--color-gray-700);
+
+      &.paintings-type {
+        &.watercolor {
+          color: var(--color-sky);
+        }
+        &.oilcolor {
+          color: var(--color-pink);
+        }
+      }
     }
 
     .new_mark {
@@ -192,6 +201,109 @@ li {
       border-width: 1px 0px 0px 0px;
       border-style: solid;
       border-color: var(--color-gray-500);
+    }
+  }
+}
+
+//=================================
+//        item-detail-box
+//=================================
+.item-detail-box {
+  display: flex;
+  // justify-content: space-between;
+  position: relative;
+
+  .item-detail-left {
+    width: 50%;
+
+    img {
+      box-shadow: 5px 5px 5px var(--color-gray-500);
+    }
+  }
+
+  .item-detail-right {
+    width: 50%;
+    padding-left: 5rem;
+
+    h4 {
+      font-family: "Lobster", cursive;
+      font-size: 2rem;
+    }
+
+    hr {
+      margin: 1rem 0;
+      height: 1px;
+      border-width: 1px 0px 0px 0px;
+      border-style: solid;
+      border-color: var(--color-gray-500);
+    }
+
+    table {
+      width: 100%;
+      caption {
+        display: none;
+      }
+
+      th {
+        width: 45%;
+        padding: 0.5rem 0;
+        text-align: left;
+      }
+      td {
+        padding-left: 1rem;
+
+        &.producer {
+          font-weight: 500;
+        }
+
+        &.paintings-type {
+          font-weight: 500;
+          text-transform: capitalize;
+
+          &.watercolor {
+            color: var(--color-sky);
+          }
+
+          &.oilcolor {
+            color: var(--color-pink);
+          }
+        }
+
+        &.size,
+        &.production-data {
+          color: var(--color-gray-500);
+        }
+
+        span {
+          font-weight: 500;
+          &.price {
+            font-size: 1rem;
+            color: var(--color-orange);
+          }
+          &.sold-out {
+            font-size: 1rem;
+            color: var(--color-dark-red);
+          }
+        }
+      }
+    }
+
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .fa-heart {
+        color: var(--color-gray-500);
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
+      .fa-shopping-cart {
+        color: var(--color-gray-500);
+        font-size: 1rem;
+        margin-left: 1rem;
+      }
     }
   }
 }
