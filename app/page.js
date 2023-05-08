@@ -11,7 +11,7 @@ export default async function HomePage() {
     <div className='container home-page'>
       <Slider />
       <Piece />
-      <hr />
+      <hr className='main-hr' />
       <NewArrival />
     </div>
   );
