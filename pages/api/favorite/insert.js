@@ -1,0 +1,28 @@
+import { connectDB } from "@/util/database";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
+
+export default async function handler(req, res) {
+  if (req.method === "POST") {
+    try {
+      const body = JSON.parse(req.body);
+
+      const session = await getServerSession(req, res, authOptions);
+
+      const favoriteItem = {
+        email: session.user.email,
+        product_id: body.product_id,
+      };
+
+      const db = (await connectDB).db("paintings_shop");
+
+      const result = await db.collection("favorite").insertOne(favoriteItem);
+
+      res.status(200).json({
+        success: true,
+      });
+    } catch (err) {
+      console.error(err);
+    }
+  }
+}

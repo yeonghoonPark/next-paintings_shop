@@ -33,8 +33,6 @@ export default function MileageChargingPage({ signedUser }) {
         getUserInfo();
       })
       .catch((err) => console.error(err));
-
-    // console.log(session, "사인드유저");
   };
 
   return (

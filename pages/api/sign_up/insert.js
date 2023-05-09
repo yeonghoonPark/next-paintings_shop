@@ -18,14 +18,20 @@ export default async function handler(req, res) {
         role: "normal",
       };
 
-      const checkUsers = users.some((user) => {
-        return user?.email === body.email;
+      const checkUserName = users.some((user) => {
+        return user?.name.toLowerCase() === body.name.toLowerCase();
       });
 
-      if (checkUsers) {
-        return res
-          .status(200)
-          .json({ success: false, data: "중복 된 Email입니다." });
+      const checkUserEmail = users.some((user) => {
+        return user?.email.toLowerCase() === body.email.toLowerCase();
+      });
+
+      if (checkUserName) {
+        return res.status(200).json({ success: false, type: "name" });
+      }
+
+      if (checkUserEmail) {
+        return res.status(200).json({ success: false, type: "email" });
       }
 
       const result = await db.collection("users").insertOne(newUser);

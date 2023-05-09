@@ -1,14 +1,42 @@
 "use client";
 
 import { addComma } from "@/app/functions/common";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
-export default function ProductDetail({ data }) {
+import { useRouter } from "next/navigation";
+
+export default function ProductDetail({ data, _id, session, signedUser }) {
+  const router = useRouter();
   const setCursorEvent = (el, propertyVal) => (el.style.cursor = propertyVal);
 
+  const [isInCart, setIsInCart] = useState(null);
+
+  const [favoriteList, setFavoriteList] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(null);
+
+  const getCartItem = async () => {
+    const res = await fetch(`/api/cart/get?email=${session?.user.email}`);
+    const json = await res.json();
+    const checkIsInCart = await json.data.some((cV) => cV.product_id === _id);
+    setIsInCart(checkIsInCart);
+  };
+
+  const getFavorite = async () => {
+    const res = await fetch(`/api/favorite/get?product_id=${_id}`);
+    const json = await res.json();
+    const checkIsFavorite = await json.data.some(
+      (cV) => cV.email === session?.user?.email,
+    );
+    setIsFavorite(checkIsFavorite);
+    setFavoriteList(json.data);
+  };
+
   useEffect(() => {
+    getCartItem();
+    getFavorite();
+
     const transformWrapper = document.querySelector(".react-transform-wrapper");
     transformWrapper.addEventListener("mouseover", () => {
       setCursorEvent(transformWrapper, "grab");
@@ -32,6 +60,89 @@ export default function ProductDetail({ data }) {
       });
     };
   }, []);
+
+  const deleteCartItem = () => {
+    fetch(`/api/cart/delete`, {
+      method: "DELETE",
+      body: JSON.stringify({ product_id: _id }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        alert(res.data);
+        getCartItem();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const insertCartItem = () => {
+    fetch("/api/cart/insert", {
+      method: "POST",
+      body: JSON.stringify({
+        product_id: _id,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        const insertCartItemConfrim = confirm(res.data);
+        if (insertCartItemConfrim) {
+          // 추후 url 수정
+          router.push(`/user_info/${signedUser._id}`);
+        }
+        getCartItem();
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const onHandleCartBtn = (_id) => {
+    if (!session) {
+      alert("로그인 후 이용할 수 있습니다.");
+      return;
+    }
+
+    if (isInCart) {
+      const deleteCartItemConfirm = confirm(
+        `이미 장바구니에 해당상품이 존재합니다,\n장바구니에서 해당상품을 삭제하시겠습니까?`,
+      );
+      if (deleteCartItemConfirm) {
+        deleteCartItem();
+      }
+    } else {
+      insertCartItem();
+    }
+  };
+
+  const insertFavorite = () => {
+    fetch(`/api/favorite/insert`, {
+      method: "POST",
+      body: JSON.stringify({
+        product_id: _id,
+      }),
+    })
+      .then(() => getFavorite())
+      .catch((err) => console.error(err));
+  };
+
+  const deleteFavorite = () => {
+    fetch(`/api/favorite/delete`, {
+      method: "DELETE",
+      body: JSON.stringify({ product_id: _id }),
+    })
+      .then(() => getFavorite())
+      .catch((err) => console.error(err));
+  };
+
+  const onHandleFavoriteBtn = () => {
+    if (!session) {
+      alert("로그인 후 이용할 수 있습니다.");
+      return;
+    }
+
+    if (isFavorite) {
+      deleteFavorite();
+    } else {
+      insertFavorite();
+    }
+  };
 
   return (
     <section className='product-detail'>
@@ -94,11 +205,29 @@ export default function ProductDetail({ data }) {
           <hr />
 
           <div className='btn-group'>
-            <button className='btn btn-lg' type='text'>
-              Add to Cart <FaShoppingCart className='fa-shopping-cart' />
+            <button
+              className='btn btn-lg'
+              type='text'
+              onClick={() => onHandleCartBtn(_id)}
+            >
+              Add to Cart{" "}
+              <FaShoppingCart
+                className={
+                  isInCart ? "fa-shopping-cart checked" : "fa-shopping-cart"
+                }
+              />
             </button>
-            <button className='btn btn-lg' type='text'>
-              Favorite <FaHeart className='fa-heart' />
+            <button
+              className='btn btn-lg'
+              type='text'
+              onClick={() => onHandleFavoriteBtn()}
+            >
+              Favorite{" "}
+              <FaHeart
+                className={isFavorite ? "fa-heart checked" : "fa-heart"}
+              />
+              {""}
+              {favoriteList.length}
             </button>
           </div>
         </div>

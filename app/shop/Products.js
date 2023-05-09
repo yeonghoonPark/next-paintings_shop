@@ -16,8 +16,6 @@ export default function Products() {
     const json = await res.json();
     setAllProducts(json.data);
     setProducts(json.data);
-
-    console.log(json.data, "데이터");
   };
 
   const resetSortType = () => setSortType("");

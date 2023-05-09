@@ -40,7 +40,13 @@ export default function SignUpPage() {
       .then((res) => res.json())
       .then((res) => {
         if (res.success === false) {
-          alert(res.data);
+          if (res.type === "name") {
+            alert("중복 된 Name입니다.");
+            nameRef.current.focus();
+            return;
+          }
+
+          alert("중복 된 Email입니다.");
           emailRef.current.focus();
           return;
         }

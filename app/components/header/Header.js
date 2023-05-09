@@ -4,7 +4,6 @@ import Link from "next/link";
 import SignInOutBtn from "./SignInOutBtn";
 import { FaCoins, FaHeart, FaShoppingCart } from "react-icons/fa";
 import { connectDB } from "@/util/database";
-// import CSRHeader from "./CSRHeader";
 
 export default async function Header() {
   const session = await getServerSession(authOptions);
@@ -17,7 +16,6 @@ export default async function Header() {
   console.log("Header컴포넌트 signedUser = ", signedUser);
 
   return (
-    // <CSRHeader session={session} signedUser={signedUser} />
     <header>
       <nav className='nav'>
         <div className='left-menu'>
