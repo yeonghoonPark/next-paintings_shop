@@ -44,12 +44,19 @@ export default function MyMileageSection({ session, signedUser }) {
       </div>
       <form>
         <div>
-          <label htmlFor='name'>My Mileage</label>
-          <input type='text' disabled readOnly value={addComma(mileage)} />
+          <label htmlFor='my-mileage'>My Mileage</label>
+          <input
+            id='my-mileage'
+            type='text'
+            disabled
+            readOnly
+            value={addComma(mileage)}
+          />
         </div>
         <div>
-          <label htmlFor='email'>Charging amount</label>
+          <label htmlFor='mileage-charge-amount'>Charging amount</label>
           <input
+            id='mileage-charge-amount'
             type='text'
             readOnly
             disabled
@@ -79,8 +86,14 @@ export default function MyMileageSection({ session, signedUser }) {
           </button>
         </div>
         <div>
-          <label htmlFor='email'>My Mileage after charging</label>
-          <input type='text' disabled readOnly value={addComma(totalMileage)} />
+          <label htmlFor='total-mileage'>My Mileage after charging</label>
+          <input
+            id='total-mileage'
+            type='text'
+            disabled
+            readOnly
+            value={addComma(totalMileage)}
+          />
         </div>
       </form>
       <div className='btn-group'>
