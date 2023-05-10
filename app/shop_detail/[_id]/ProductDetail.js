@@ -227,7 +227,7 @@ export default function ProductDetail({ data, _id, session, signedUser }) {
                 className={isFavorite ? "fa-heart checked" : "fa-heart"}
               />
               {""}
-              {favoriteList.length}
+              &#40; {favoriteList.length} &#41;
             </button>
           </div>
         </div>

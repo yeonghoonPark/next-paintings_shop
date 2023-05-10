@@ -108,7 +108,7 @@ li {
   }
 
   &.btn-md {
-    max-width: 128px;
+    max-width: 138px;
     min-height: 42px;
     font-size: 1rem;
   }
@@ -292,7 +292,7 @@ li {
 
       .fa-heart {
         color: var(--color-gray-500);
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin: 0 1rem;
         &.checked {
           color: var(--color-red);
@@ -301,7 +301,7 @@ li {
 
       .fa-shopping-cart {
         color: var(--color-gray-500);
-        font-size: 1rem;
+        font-size: 1.1rem;
         margin-left: 1rem;
         &.checked {
           color: var(--color-sky);
@@ -445,10 +445,25 @@ header {
         .fa-coins,
         .fa-heart,
         .fa-shopping-cart {
+          font-size: 1.1rem;
           cursor: pointer;
+        }
 
+        .fa-coins {
           &:hover {
-            color: var(--color-orange);
+            color: var(--color-dark-yellow);
+          }
+        }
+
+        .fa-heart {
+          &:hover {
+            color: var(--color-red);
+          }
+        }
+
+        .fa-shopping-cart {
+          &:hover {
+            color: var(--color-sky);
           }
         }
       }
@@ -739,8 +754,8 @@ header {
       button {
         width: 102px;
         margin-bottom: 5rem;
-        font-family: "Lobster", cursive;
-        font-size: 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
       }
     }
   }
@@ -991,6 +1006,7 @@ header {
 //         sign-up-page
 //=================================
 .sign-up-page {
+  padding: 4rem 0;
   form {
     max-width: 300px;
     margin: 0 auto;
@@ -1022,6 +1038,200 @@ header {
 
     & div:nth-child(4) {
       margin-bottom: 1.5rem;
+    }
+  }
+}
+
+//=================================
+//            my-page
+//=================================
+.my-page {
+  display: flex;
+  gap: 4rem;
+  padding: 4rem 0;
+
+  .my-page-left {
+    width: 15%;
+    min-width: 172.8px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .fa-user,
+    .fa-coins,
+    .fa-heart,
+    .fa-shopping-cart,
+    .fa-credit-card {
+      margin-left: 1rem;
+      font-size: 1.1rem;
+      color: var(--color-gray-500);
+    }
+
+    .fa-user {
+      &.checked {
+        color: var(--color-beige);
+      }
+    }
+
+    .fa-coins {
+      &.checked {
+        color: var(--color-dark-yellow);
+      }
+    }
+
+    .fa-heart {
+      &.checked {
+        color: var(--color-red);
+      }
+    }
+
+    .fa-shopping-cart {
+      &.checked {
+        color: var(--color-sky);
+      }
+    }
+
+    .fa-credit-card {
+      &.checked {
+        color: var(--color-green);
+      }
+    }
+  }
+
+  .my-page-right {
+    width: 85%;
+    min-width: 483.2px;
+
+    h2 {
+      padding: 0 2rem;
+    }
+
+    hr {
+      margin: 1rem 0;
+      height: 1px;
+      border-width: 1px 0px 0px 0px;
+      border-style: solid;
+      border-color: var(--color-gray-500);
+    }
+
+    .my-profile-page {
+      .my-profile-section {
+        padding: 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 6px 12px -4px var(--color-gray-500);
+
+        .title-part {
+          text-align: center;
+
+          h3 {
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+          }
+          p {
+            color: var(--color-gray-600);
+            margin-bottom: 1rem;
+          }
+        }
+
+        form {
+          max-width: 300px;
+          margin: 2rem auto;
+
+          div {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.75rem;
+
+            label {
+              margin-bottom: 0.25rem;
+              text-align: left;
+            }
+
+            input {
+              width: 100%;
+              margin-bottom: 0.5rem;
+              padding: 0.5rem 1rem;
+              border: 1px solid #bbb;
+              border-radius: 0.5rem;
+              background-color: white;
+              font-size: 1rem;
+
+              &[disabled] {
+                background-color: var(--color-white-blue);
+              }
+            }
+          }
+        }
+
+        .btn-group {
+          button {
+            margin-bottom: 0;
+          }
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+    }
+
+    .my-mileage-section {
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 12px -4px var(--color-gray-500);
+
+      .title-part {
+        text-align: center;
+
+        h3 {
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+        p {
+          color: var(--color-gray-600);
+          margin-bottom: 1rem;
+        }
+      }
+
+      form {
+        max-width: 300px;
+        margin: 2rem auto;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 0.75rem;
+
+          label {
+            margin-bottom: 0.25rem;
+            text-align: left;
+          }
+
+          input {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #bbb;
+            border-radius: 0.5rem;
+            background-color: white;
+            font-size: 1rem;
+
+            text-align: right;
+            font-weight: 500;
+            color: var(--color-orange);
+
+            &[disabled] {
+              background-color: var(--color-white-blue);
+            }
+          }
+        }
+      }
+
+      .btn-group {
+        button {
+          margin-bottom: 0;
+        }
+        display: flex;
+        justify-content: flex-end;
+      }
     }
   }
 }

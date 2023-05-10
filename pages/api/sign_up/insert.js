@@ -14,7 +14,7 @@ export default async function handler(req, res) {
         email: body.email,
         password: encryptedPassword,
         image: body.image ?? "https://i.pravatar.cc",
-        mailage: "0",
+        mileage: "0",
         role: "normal",
       };
 

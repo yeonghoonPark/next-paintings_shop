@@ -1,5 +1,5 @@
-export const addComma = (mailage) =>
-  mailage?.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+export const addComma = (mileage) =>
+  mileage?.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
 
 export const addZero = (number) => (number < 10 ? "0" + number : "" + number);
 

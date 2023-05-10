@@ -70,7 +70,7 @@ export const authOptions = {
         token.user.name = user.name;
         token.user.email = user.email;
         token.user.image = user.image;
-        token.user.mailage = user.mailage;
+        token.user.mileage = user.mileage;
         token.user.role = user.role;
       }
       return token;

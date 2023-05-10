@@ -41,12 +41,12 @@ export default function SignUpPage() {
       .then((res) => {
         if (res.success === false) {
           if (res.type === "name") {
-            alert("중복 된 Name입니다.");
+            alert("Duplicate name Please use a different name.");
             nameRef.current.focus();
             return;
           }
 
-          alert("중복 된 Email입니다.");
+          alert("Duplicate email Please use a different email.");
           emailRef.current.focus();
           return;
         }
@@ -71,7 +71,7 @@ export default function SignUpPage() {
             value={nameVal}
             ref={nameRef}
             required
-            maxLength={12}
+            maxLength={20}
             onChange={(e) => setNameVal(e.target.value)}
           />
         </div>

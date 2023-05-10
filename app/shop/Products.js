@@ -120,14 +120,14 @@ export default function Products() {
             type='text'
             onClick={onWatercolorBtn}
           >
-            Watercolor's
+            Watercolor
           </button>
           <button
             className={categoryType === "oilcolor" ? "btn checked" : "btn"}
             type='text'
             onClick={onOilcolorBtn}
           >
-            Oilcolor's
+            Oilcolor
           </button>
           <button
             className={categoryType === "etc" ? "btn checked" : "btn"}

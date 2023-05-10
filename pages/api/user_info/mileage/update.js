@@ -7,19 +7,19 @@ export default async function handler(req, res) {
       const db = (await connectDB).db("paintings_shop");
       const user = await db.collection("users").findOne({ email: body.email });
 
-      user.mailage = user.mailage ?? "0";
-      const calculatedmileage = parseInt(user.mailage) + parseInt(body.mailage);
+      user.mileage = user.mileage ?? "0";
 
       const result = await db
         .collection("users")
         .updateOne(
           { email: body.email },
-          { $set: { mailage: calculatedmileage.toString() } },
+          { $set: { mileage: body.mileage.toString() } },
         );
 
-      res
-        .status(200)
-        .json({ success: true, data: "마일리지 충전이 완료되었습니다." });
+      res.status(200).json({
+        success: true,
+        data: "Mileage charging completed successfully.",
+      });
     } catch (err) {
       console.error(err);
     }

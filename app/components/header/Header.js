@@ -12,8 +12,6 @@ export default async function Header() {
     .collection("users")
     .findOne({ email: session?.user.email });
   session && (signedUser._id = signedUser._id.toString());
-  console.log("Header컴포넌트 session = ", session);
-  console.log("Header컴포넌트 signedUser = ", signedUser);
 
   return (
     <header>
@@ -31,17 +29,23 @@ export default async function Header() {
           ) : (
             <>
               <span title='My Mileage'>
-                <Link href={`/user_info/${signedUser._id}`}>
+                <Link
+                  href={`/my_page/${signedUser._id}/my_mileage?search=my_mileage`}
+                >
                   <FaCoins className='fa-coins' />
                 </Link>
               </span>
               <span title='My Favorites'>
-                <Link href='/'>
+                <Link
+                  href={`/my_page/${signedUser._id}/my_favorite?search=my_favorite`}
+                >
                   <FaHeart className='fa-heart' />
                 </Link>
               </span>
               <span title='My Cart'>
-                <Link href='/'>
+                <Link
+                  href={`/my_page/${signedUser._id}/my_cart?search=my_cart`}
+                >
                   <FaShoppingCart className='fa-shopping-cart' />
                 </Link>
               </span>
