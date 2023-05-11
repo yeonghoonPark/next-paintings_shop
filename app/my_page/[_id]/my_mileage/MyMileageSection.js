@@ -40,7 +40,6 @@ export default function MyMileageSection({ session, signedUser }) {
     <section className='my-mileage-section'>
       <div className='title-part'>
         <h3>You can charge and pay your mileage for free.</h3>
-        <p>※ You can only enter numbers.</p>
       </div>
       <form>
         <div>

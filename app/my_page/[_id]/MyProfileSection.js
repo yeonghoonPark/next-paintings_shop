@@ -45,8 +45,8 @@ export default function MyProfileSection({ session, signedUser }) {
     <section className='my-profile-section'>
       <div className='title-part'>
         <h3>
-          The Name is reflected in the payment, Please use your real name or any
-          name you want.
+          The Name is reflected in the payment, use your real name or any name
+          you want.
         </h3>
         <p>※ email cannot be changed.</p>
       </div>

@@ -146,6 +146,7 @@ li {
     h4 {
       padding: calc(0.5rem + 4px) 0 0.5rem 0;
       font-family: "Lobster", cursive;
+      font-weight: 300;
       font-size: 2rem;
     }
 
@@ -223,6 +224,7 @@ li {
 
     h4 {
       font-family: "Lobster", cursive;
+      font-weight: 300;
       font-size: 2rem;
     }
 
@@ -584,6 +586,7 @@ header {
       .slide-text {
         position: absolute;
         font-family: "Lobster", cursive;
+        font-weight: 300;
         font-size: 2rem;
 
         &.slide-text01 {
@@ -664,6 +667,7 @@ header {
       h3 {
         user-select: none;
         font-family: "Lobster", cursive;
+        font-weight: 300;
         font-size: 1.5rem;
         text-align: center;
         padding: 2rem 0;
@@ -679,6 +683,7 @@ header {
 
       p {
         font-family: "Lobster", cursive;
+        font-weight: 300;
         padding: 2rem 0;
       }
     }
@@ -691,6 +696,7 @@ header {
     h2 {
       padding: 2rem 0;
       font-family: "Lobster", cursive;
+      font-weight: 300;
       font-size: 2rem;
       text-align: center;
       user-select: none;
@@ -708,6 +714,7 @@ header {
     .banner-text {
       position: absolute;
       font-family: "Lobster", cursive;
+      font-weight: 300;
       font-size: 2rem;
       text-transform: capitalize;
       user-select: none;
@@ -741,6 +748,7 @@ header {
       button {
         margin-bottom: 0;
         font-family: "Lobster", cursive;
+        font-weight: 300;
         font-size: 1.7rem;
       }
     }
@@ -778,6 +786,7 @@ header {
     h2 {
       padding-bottom: 2rem;
       font-family: "Lobster", cursive;
+      font-weight: 300;
       font-size: 2rem;
       text-align: center;
       user-select: none;
@@ -1100,7 +1109,7 @@ header {
 
   .my-page-right {
     width: 85%;
-    min-width: 483.2px;
+    min-width: 768px;
 
     h2 {
       padding: 0 2rem;
@@ -1114,12 +1123,14 @@ header {
       border-color: var(--color-gray-500);
     }
 
+    section {
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 6px 12px -4px var(--color-gray-500);
+    }
+
     .my-profile-page {
       .my-profile-section {
-        padding: 2rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 6px 12px -4px var(--color-gray-500);
-
         .title-part {
           text-align: center;
 
@@ -1174,20 +1185,12 @@ header {
     }
 
     .my-mileage-section {
-      padding: 2rem;
-      border-radius: 0.5rem;
-      box-shadow: 0 6px 12px -4px var(--color-gray-500);
-
       .title-part {
         text-align: center;
 
         h3 {
           font-weight: 500;
           margin-bottom: 0.5rem;
-        }
-        p {
-          color: var(--color-gray-600);
-          margin-bottom: 1rem;
         }
       }
 
@@ -1231,6 +1234,143 @@ header {
         }
         display: flex;
         justify-content: flex-end;
+      }
+    }
+
+    .my-fovorite-section {
+      label {
+        height: 20px;
+      }
+      input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+      }
+
+      .title-part {
+        h3 {
+          font-weight: 500;
+          margin-bottom: 0.5rem;
+        }
+      }
+
+      .favorite-nonexistent {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+        padding: 3.675rem;
+        color: var(--color-gray-500);
+
+        .fa-exclamation-circle {
+          font-size: 1.5rem;
+        }
+
+        button {
+          margin-top: 1.25rem;
+        }
+      }
+
+      .checkbox-group {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+
+        button {
+          width: 178px;
+          margin-left: 1rem;
+          margin-bottom: 0;
+        }
+      }
+
+      ul {
+        margin: 2rem 0;
+        border-top: 2px solid var(--color-gray-500);
+
+        li {
+          display: flex;
+          height: auto;
+          padding: 1rem 0;
+
+          border-bottom: 1px solid var(--color-gray-500);
+
+          .img-box {
+            a {
+              display: inline-block;
+              width: 178px;
+              margin: 0 1rem;
+            }
+            img {
+              box-shadow: 5px 5px 5px var(--color-gray-500);
+            }
+          }
+
+          .product-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0 1rem;
+
+            h4 {
+              font-family: "Lobster", cursive;
+              font-weight: 300;
+              font-size: 1.2rem;
+            }
+
+            p {
+              span {
+                margin-right: 1rem;
+
+                &.producer {
+                  font-weight: 500;
+                }
+
+                &.paintings-type {
+                  display: inline-block;
+                  color: var(--color-black);
+                  text-transform: capitalize;
+                  font-weight: 500;
+
+                  &.oilcolor {
+                    color: var(--color-pink);
+                  }
+
+                  &.watercolor {
+                    color: var(--color-sky);
+                  }
+                }
+
+                &.size {
+                  font-size: 0.8rem;
+                  color: var(--color-gray-600);
+                }
+              }
+
+              .is-new {
+                width: 20px;
+                margin-right: 1rem;
+              }
+
+              &.production-data {
+                font-size: 0.8rem;
+                color: var(--color-gray-600);
+              }
+
+              &.price {
+                font-weight: 500;
+                color: var(--color-orange);
+              }
+
+              &.sold-out {
+                font-weight: 500;
+                color: var(--color-dark-red);
+              }
+            }
+          }
+        }
       }
     }
   }

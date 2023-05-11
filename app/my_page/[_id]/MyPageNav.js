@@ -25,6 +25,7 @@ export default function MyPageNav({ _id }) {
           className={search === "my_profile" ? "fa-user checked" : "fa-user"}
         />
       </Link>
+
       <Link
         // prefetch={false}
         className={search === "my_mileage" ? "btn checked" : "btn"}
@@ -35,6 +36,7 @@ export default function MyPageNav({ _id }) {
           className={search === "my_mileage" ? "fa-coins checked" : "fa-coins"}
         />
       </Link>
+
       <Link
         // prefetch={false}
         className={search === "my_favorite" ? "btn checked" : "btn"}
@@ -45,6 +47,7 @@ export default function MyPageNav({ _id }) {
           className={search === "my_favorite" ? "fa-heart checked" : "fa-heart"}
         />
       </Link>
+
       <Link
         // prefetch={false}
         className={search === "my_cart" ? "btn checked" : "btn"}
@@ -59,6 +62,7 @@ export default function MyPageNav({ _id }) {
           }
         />
       </Link>
+
       <Link
         // prefetch={false}
         className={search === "my_payment" ? "btn checked" : "btn"}
