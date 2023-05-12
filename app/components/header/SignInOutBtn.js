@@ -12,7 +12,7 @@ export default function SignInOutBtn({ session, signedUser }) {
   const navRef = useRef();
 
   const getUser = async () => {
-    const res = await fetch(`/api/user_info/get?_id=${signedUser._id}`);
+    const res = await fetch(`/api/user_info/get?_id=${signedUser?._id}`);
     const json = await res.json();
     setUserName(json.data.name);
   };
@@ -42,7 +42,7 @@ export default function SignInOutBtn({ session, signedUser }) {
           <nav ref={navRef} style={{ display: IsNavShow ? "block" : "none" }}>
             <ul>
               <li>
-                <Link href={`/my_page/${signedUser._id}?search=my_profile`}>
+                <Link href={`/my_page/${signedUser?._id}?search=my_profile`}>
                   My Page
                 </Link>
               </li>

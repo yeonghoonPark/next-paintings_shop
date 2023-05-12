@@ -15,7 +15,6 @@ export default function MyFavoriteSection({ session }) {
         `/api/user_info/favorite/get?email=${session?.user?.email}`,
       );
       const json = await res.json();
-      console.log(json.data);
       setFavoriteList(json.data);
       setIsLoading(true);
     } catch (err) {
@@ -79,7 +78,7 @@ export default function MyFavoriteSection({ session }) {
       method: "DELETE",
       body: JSON.stringify({
         email: session?.user?.email,
-        checked_Id_list: checkedIdList,
+        checked_id_list: checkedIdList,
       }),
     })
       .then((res) => res.json())
@@ -121,7 +120,7 @@ export default function MyFavoriteSection({ session }) {
       {!isLoading ? null : (
         <>
           {favoriteList.length < 1 ? (
-            <div className='favorite-nonexistent'>
+            <div className='nonexistent'>
               <FaExclamationCircle className='fa-exclamation-circle' />
               <span>You don't have a favorite product.</span>
               <span>

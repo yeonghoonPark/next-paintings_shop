@@ -20,6 +20,11 @@ export default function MyMileageSection({ session, signedUser }) {
   }, []);
 
   const onHandleCargeBtn = () => {
+    if (mileageChargeAmount === 0) {
+      alert("Please select the amount you want to charge");
+      return;
+    }
+
     fetch("/api/user_info/mileage/update", {
       method: "POST",
       body: JSON.stringify({

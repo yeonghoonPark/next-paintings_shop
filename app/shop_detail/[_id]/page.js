@@ -16,7 +16,7 @@ export default async function ShopDetailPage(props) {
   const signedUser = await db
     .collection("users")
     .findOne({ email: session?.user.email });
-  session && (signedUser._id = signedUser._id.toString());
+  session && (signedUser._id = await signedUser._id.toString());
 
   return (
     <div className='container shop-detail-page'>

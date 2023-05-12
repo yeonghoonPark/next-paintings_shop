@@ -85,8 +85,7 @@ export default function ProductDetail({ data, _id, session, signedUser }) {
       .then((res) => {
         const insertCartItemConfrim = confirm(res.data);
         if (insertCartItemConfrim) {
-          // 추후 url 수정
-          router.push(`/user_info/${signedUser._id}`);
+          router.push(`/my_page/${signedUser._id}/my_cart?search=my_cart`);
         }
         getCartItem();
       })

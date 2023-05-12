@@ -54,7 +54,7 @@ li {
 
   --color-dark-red: #ac0b0b;
   --color-dark-orange: #c41c00;
-  --color-dark-blue: #1b1b1f;
+  --color-dark-blue: #202057;
 
   --color-light-red: #f8d7da;
   --color-light-peach: #e06c75;
@@ -1078,7 +1078,7 @@ header {
 
     .fa-user {
       &.checked {
-        color: var(--color-beige);
+        color: var(--color-dark-blue);
       }
     }
 
@@ -1112,7 +1112,30 @@ header {
     min-width: 768px;
 
     h2 {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
       padding: 0 2rem;
+
+      .fa-user {
+        color: var(--color-dark-blue);
+      }
+
+      .fa-coins {
+        color: var(--color-dark-yellow);
+      }
+
+      .fa-heart {
+        color: var(--color-red);
+      }
+
+      .fa-shopping-cart {
+        color: var(--color-sky);
+      }
+
+      .fa-credit-card {
+        color: var(--color-green);
+      }
     }
 
     hr {
@@ -1237,7 +1260,8 @@ header {
       }
     }
 
-    .my-fovorite-section {
+    .my-fovorite-section,
+    .my-cart-section {
       label {
         height: 20px;
       }
@@ -1252,9 +1276,14 @@ header {
           font-weight: 500;
           margin-bottom: 0.5rem;
         }
+
+        p {
+          color: var(--color-gray-600);
+          margin-bottom: 1rem;
+        }
       }
 
-      .favorite-nonexistent {
+      .nonexistent {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1291,6 +1320,7 @@ header {
 
         li {
           display: flex;
+          align-items: center;
           height: auto;
           padding: 1rem 0;
 
@@ -1370,6 +1400,36 @@ header {
               }
             }
           }
+        }
+      }
+
+      .payment-box {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        padding: 1rem;
+        background-color: var(--color-white-blue);
+        border-radius: 0.5rem;
+
+        .total-price-box {
+          user-select: none;
+          font-weight: 500;
+          font-size: 1.2rem;
+          color: var(--color-orange);
+
+          span {
+            display: inline-block;
+            margin: 0 1rem;
+          }
+
+          em {
+            font-style: normal;
+          }
+        }
+
+        button {
+          margin: 0;
         }
       }
     }

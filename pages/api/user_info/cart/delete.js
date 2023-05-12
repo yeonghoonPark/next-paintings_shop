@@ -8,7 +8,7 @@ export default async function handler(req, res) {
       const db = (await connectDB).db("paintings_shop");
 
       for (let i = 0; i < body.checked_id_list.length; i++) {
-        const result = await db.collection("favorite").deleteOne({
+        const result = await db.collection("cart").deleteOne({
           email: body.email,
           product_id: body.checked_id_list[i],
         });
