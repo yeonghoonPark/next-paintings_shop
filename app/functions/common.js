@@ -11,3 +11,12 @@ export const myTimeStamp = () => {
 
   return `${years}.${months}.${dates}`;
 };
+
+export const createOrderNum = () => {
+  const date = new Date();
+  const a = date.getFullYear();
+  const b = addZero(date.getDate());
+  const c = addZero(date.getSeconds());
+
+  return `${a}${b}${c}`;
+};

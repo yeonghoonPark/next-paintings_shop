@@ -1,6 +1,7 @@
 import { connectDB } from "@/util/database";
 import { ObjectId } from "mongodb";
 import { myTimeStamp } from "@/app/functions/common";
+import { createOrderNum } from "@/app/functions/common";
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
@@ -36,6 +37,7 @@ export default async function handler(req, res) {
       const payment = {
         email: body.email,
         order_name_list: body.checked_name_list,
+        order_num: createOrderNum(),
         time_stamp: myTimeStamp(),
         payment_amount: body.total_price.toString(),
         payment_type: "mileage",

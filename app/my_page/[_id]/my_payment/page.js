@@ -1,6 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-
+import MyPaymentSection from "./MyPaymentSection";
 import { FaCreditCard } from "react-icons/fa";
 
 export default async function MyPaymentPage() {
@@ -12,6 +12,7 @@ export default async function MyPaymentPage() {
         <FaCreditCard className='fa-credit-card' />
       </h2>
       <hr />
+      <MyPaymentSection />
     </div>
   );
 }

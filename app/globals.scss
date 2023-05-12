@@ -53,6 +53,7 @@ li {
   --color-sky-blue: #cfe2ff;
 
   --color-dark-red: #ac0b0b;
+  --color-dark-pink: #941153;
   --color-dark-orange: #c41c00;
   --color-dark-blue: #202057;
 
@@ -1261,7 +1262,8 @@ header {
     }
 
     .my-fovorite-section,
-    .my-cart-section {
+    .my-cart-section,
+    .my-payment-section {
       label {
         height: 20px;
       }
@@ -1430,6 +1432,61 @@ header {
 
         button {
           margin: 0;
+        }
+      }
+
+      .table-box {
+        .payment-table {
+          width: 100%;
+          margin: 2rem 0;
+          border-collapse: collapse;
+
+          thead {
+            tr {
+              color: var(--color-white);
+              background-color: var(--color-orange);
+
+              th {
+                padding: 0.75rem 0;
+                font-weight: 400;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              td {
+                padding: 0.75rem 0;
+                text-align: center;
+
+                &:nth-child(1) {
+                  font-weight: 500;
+                  color: var(--color-dark-pink);
+                }
+
+                &:nth-child(2) {
+                  color: var(--color-gray-600);
+                }
+
+                &:nth-child(3) {
+                  span {
+                    font-family: "Lobster", cursive;
+                    font-weight: 300;
+                  }
+                }
+
+                &:nth-child(4) {
+                  color: var(--color-gray-600);
+                  text-transform: capitalize;
+                }
+
+                &:nth-child(5) {
+                  font-weight: 500;
+                  color: var(--color-orange);
+                }
+              }
+            }
+          }
         }
       }
     }
