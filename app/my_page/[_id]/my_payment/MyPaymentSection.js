@@ -12,7 +12,6 @@ export default function MyPaymentSection() {
   const getPaymentList = async () => {
     const res = await fetch(`/api/user_info/payment/get`);
     const json = await res.json();
-    console.log(json.data, "제이슨데이터");
     setPaymentList(json.data);
     setIsLoading(true);
   };
