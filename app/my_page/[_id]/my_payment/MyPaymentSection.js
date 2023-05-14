@@ -3,6 +3,7 @@
 import { addComma } from "@/app/functions/common";
 import { useEffect, useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
+import LoadingPage from "@/app/loading";
 
 export default function MyPaymentSection() {
   const [paymentList, setPaymentList] = useState([]);
@@ -50,7 +51,9 @@ export default function MyPaymentSection() {
         <h3>You can check your payment information.</h3>
       </div>
 
-      {!isLoading ? null : (
+      {!isLoading ? (
+        LoadingPage()
+      ) : (
         <>
           {paymentList.length < 1 ? (
             <div className='nonexistent'>

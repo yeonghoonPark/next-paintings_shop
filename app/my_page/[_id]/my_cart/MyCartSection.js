@@ -4,6 +4,7 @@ import { addComma } from "@/app/functions/common";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
+import LoadingPage from "@/app/loading";
 
 export default function MyCartSection({ session, signedUser }) {
   const [cartList, setCartList] = useState([]);
@@ -220,7 +221,9 @@ export default function MyCartSection({ session, signedUser }) {
         <p>※ You cannot order products that are sold out.</p>
       </div>
 
-      {!isLoading ? null : (
+      {!isLoading ? (
+        LoadingPage()
+      ) : (
         <>
           {cartList.length < 1 ? (
             <div className='nonexistent'>

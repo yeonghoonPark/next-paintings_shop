@@ -4,6 +4,7 @@ import { addComma } from "@/app/functions/common";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaExclamationCircle } from "react-icons/fa";
+import LoadingPage from "@/app/loading";
 
 export default function MyFavoriteSection({ session }) {
   const [favoriteList, setFavoriteList] = useState([]);
@@ -117,7 +118,9 @@ export default function MyFavoriteSection({ session }) {
         <h3>My favorite product list.</h3>
       </div>
 
-      {!isLoading ? null : (
+      {!isLoading ? (
+        LoadingPage()
+      ) : (
         <>
           {favoriteList.length < 1 ? (
             <div className='nonexistent'>
