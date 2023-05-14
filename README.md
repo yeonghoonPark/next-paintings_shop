@@ -6,7 +6,7 @@
 
 ### 2. 개발목표
 
-- NextJS를 이용한 로그인 및 CRUD기능 구현
+- NextJS와 MongoDB를 이용한 CURD구현
 
 ### 3. 사용기술
 
