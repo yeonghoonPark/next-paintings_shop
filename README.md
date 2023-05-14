@@ -1,4 +1,4 @@
-## Painting-Shop, React라이브러리를 활용한 반응형 SPA 제작
+## Paintings-Shop, NextJS프레임워크를 활용한 웹쇼핑몰 제작
 
 ### 1. 사이트 바로가기
 
