@@ -3,8 +3,11 @@
 import { useEffect, useState } from "react";
 import Banner from "./Banner";
 import ItemCard from "../components/base/ItemCard";
+import LoadingPage from "../loading";
 
 export default function Products() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [allProducts, setAllProducts] = useState([]);
   const [products, setProducts] = useState([]);
 
@@ -16,6 +19,7 @@ export default function Products() {
     const json = await res.json();
     setAllProducts(json.data);
     setProducts(json.data);
+    setIsLoading(true);
   };
 
   const resetSortType = () => setSortType("");
@@ -163,9 +167,15 @@ export default function Products() {
         </div>
 
         <div className='item-box'>
-          {products.map((cV) => (
-            <ItemCard key={cV._id} item={cV} />
-          ))}
+          {!isLoading ? (
+            LoadingPage()
+          ) : (
+            <>
+              {products.map((cV) => (
+                <ItemCard key={cV._id} item={cV} />
+              ))}
+            </>
+          )}
         </div>
       </section>
     </>
