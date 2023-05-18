@@ -1,15 +1,21 @@
 import { addComma } from "@/app/functions/common";
 import Link from "next/link";
+import Image from "next/legacy/image";
 
 export default function ItemCard({ item }) {
   return (
     <div className='item-card' key={item._id}>
       <Link prefetch={false} href={`/shop_detail/${item._id}`}>
-        <img
-          className='item-img'
-          src={`${item.image}`}
-          alt={`${item.product_name}`}
-        />
+        <div className='img-box'>
+          <Image
+            className='item-img'
+            src={`${item.image}`}
+            alt={`${item.product_name}`}
+            width={288}
+            height={191}
+            layout='responsive'
+          />
+        </div>
 
         <h4>{item.product_name}</h4>
         <h5>{item.producer}</h5>

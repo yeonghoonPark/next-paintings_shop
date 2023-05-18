@@ -4,7 +4,6 @@ import { addComma } from "@/app/functions/common";
 import { useEffect, useState } from "react";
 import { FaHeart, FaShoppingCart } from "react-icons/fa";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
-
 import { useRouter } from "next/navigation";
 
 export default function ProductDetail({ data, _id, session, signedUser }) {
