@@ -7,7 +7,6 @@ import ProductNotice from "./ProductNotcie";
 
 export default async function ShopDetailPage(props) {
   const session = await getServerSession(authOptions);
-  console.log("ShopDetailPage컴포넌트 session =", session);
   const db = (await connectDB).db("paintings_shop");
   const data = await db
     .collection("products")
