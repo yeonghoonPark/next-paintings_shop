@@ -5,6 +5,11 @@ import { getServerSession } from "next-auth";
 import MyMileageSection from "./MyMileageSection";
 import { FaCoins } from "react-icons/fa";
 
+export const metadata = {
+  title: "My Mileage",
+  description: "My Mileage Settings",
+};
+
 export default async function MyMileagePage(props) {
   const session = await getServerSession(authOptions);
   const db = (await connectDB).db("paintings_shop");

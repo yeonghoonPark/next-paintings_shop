@@ -3,6 +3,11 @@ import { getServerSession } from "next-auth";
 import MyFavoriteSection from "./MyFavoriteSection";
 import { FaHeart } from "react-icons/fa";
 
+export const metadata = {
+  title: "My Favorite",
+  description: "My Favorite Settings",
+};
+
 export default async function MyFavoritePage() {
   const session = await getServerSession(authOptions);
 

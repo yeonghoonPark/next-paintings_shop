@@ -4,6 +4,11 @@ import { connectDB } from "@/util/database";
 import MyCartSection from "./MyCartSection";
 import { FaShoppingCart } from "react-icons/fa";
 
+export const metadata = {
+  title: "My Cart",
+  description: "Shopping Basket Settings",
+};
+
 export default async function MyCartPage() {
   const session = await getServerSession(authOptions);
   const db = (await connectDB).db("paintings_shop");

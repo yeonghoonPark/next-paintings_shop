@@ -5,6 +5,11 @@ import { getServerSession } from "next-auth";
 import MyProfileSection from "./MyProfileSection";
 import { FaUser } from "react-icons/fa";
 
+export const metadata = {
+  title: "My Profile",
+  description: "Change information",
+};
+
 export default async function MyProfilePage(props) {
   const session = await getServerSession(authOptions);
   const db = (await connectDB).db("paintings_shop");

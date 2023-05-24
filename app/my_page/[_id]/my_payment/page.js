@@ -3,6 +3,11 @@ import { getServerSession } from "next-auth";
 import MyPaymentSection from "./MyPaymentSection";
 import { FaCreditCard } from "react-icons/fa";
 
+export const metadata = {
+  title: "My Payment",
+  description: "Check my payment information",
+};
+
 export default async function MyPaymentPage() {
   const session = await getServerSession(authOptions);
   return (
