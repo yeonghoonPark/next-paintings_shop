@@ -3,11 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export const metadata = {
-  title: "Sign up Page",
-  description: "You can sign up for a painting shop",
-};
-
 export default function SignUpPage() {
   const router = useRouter();
 
