@@ -1,5 +1,6 @@
 import "./globals.scss";
 import Header from "./components/header/Header";
+import SWRConfigContext from "./contexts/SWRConfigContext";
 
 export const metadata = {
   title: {
@@ -17,7 +18,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body>
         <Header />
-        {children}
+        <SWRConfigContext>
+          <main>{children}</main>
+        </SWRConfigContext>
       </body>
     </html>
   );

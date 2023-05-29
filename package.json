@@ -20,6 +20,7 @@
     "react-icons": "^4.8.0",
     "react-zoom-pan-pinch": "^3.0.7",
     "sass": "^1.62.0",
+    "swr": "^2.1.5",
     "typeit-react": "^2.6.4"
   }
 }
