@@ -1,7 +1,6 @@
 "use client";
 
 import useSWR from "swr";
-import LoadingPage from "@/app/loading";
 import ItemCard from "../../base/ItemCard";
 
 export default function NewArrival() {
@@ -12,13 +11,11 @@ export default function NewArrival() {
     <section className='new-arrival'>
       <h2>New Arrival</h2>
       <div className='item-box'>
-        {isLoading ? (
-          <LoadingPage />
-        ) : (
+        {newPaintings && (
           <>
-            {newPaintings.map((cV) => {
-              return <ItemCard key={cV._id} item={cV} />;
-            })}
+            {newPaintings.map((cV) => (
+              <ItemCard key={cV._id} item={cV} />
+            ))}
           </>
         )}
       </div>
