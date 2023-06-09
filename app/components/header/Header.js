@@ -17,9 +17,9 @@ export default async function Header() {
     <header>
       <nav className='nav'>
         <div className='left-menu'>
-          <div className='logo'>
+          <h1 className='logo'>
             <img src='/images/logo.png' alt='logo' />
-          </div>
+          </h1>
           <Link href='/'>Home</Link>
           <Link href='/shop'>Shop</Link>
         </div>

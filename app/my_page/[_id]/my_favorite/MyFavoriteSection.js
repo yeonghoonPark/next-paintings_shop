@@ -45,7 +45,7 @@ export default function MyFavoriteSection({ session }) {
             </Link>
           </div>
           <div className='product-info'>
-            <h4>{cV?.product_name}</h4>
+            <h2>{cV?.product_name}</h2>
             <p>
               <span className='producer'>{cV?.producer}</span>
               <span className={`paintings-type ${cV?.paintings_type}`}>

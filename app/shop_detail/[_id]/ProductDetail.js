@@ -154,7 +154,7 @@ export default function ProductDetail({ data, _id, session, signedUser }) {
         </div>
 
         <div className='item-detail-right'>
-          <h4>{data.product_name}</h4>
+          <h2>{data.product_name}</h2>
           <hr />
           <table>
             <caption>Product Info</caption>

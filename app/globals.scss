@@ -144,14 +144,15 @@ li {
       box-shadow: 5px 5px 5px var(--color-gray-500);
     }
 
-    h4 {
+    h2 {
       padding: calc(0.5rem + 4px) 0 0.5rem 0;
       font-family: "Lobster", cursive;
       font-weight: 300;
       font-size: 2rem;
+      text-align: left;
     }
 
-    h5 {
+    h3 {
       padding: 0.5rem 0;
       font-size: 1rem;
       font-weight: bold;
@@ -223,7 +224,7 @@ li {
   .item-detail-right {
     width: 40%;
 
-    h4 {
+    h2 {
       font-family: "Lobster", cursive;
       font-weight: 300;
       font-size: 2rem;
@@ -695,11 +696,11 @@ header {
   //=================================
   .new-arrival {
     h2 {
-      padding: 2rem 0;
+      padding: 0.75rem 0;
       font-family: "Lobster", cursive;
       font-weight: 300;
       font-size: 2rem;
-      text-align: center;
+      text-align: left;
       user-select: none;
     }
   }
@@ -1346,10 +1347,11 @@ header {
             gap: 0.75rem;
             margin: 0 1rem;
 
-            h4 {
+            h2 {
               font-family: "Lobster", cursive;
               font-weight: 300;
               font-size: 1.2rem;
+              padding: 0;
             }
 
             p {

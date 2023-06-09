@@ -17,8 +17,8 @@ export default function ItemCard({ item }) {
           />
         </div>
 
-        <h4>{item.product_name}</h4>
-        <h5>{item.producer}</h5>
+        <h2>{item.product_name}</h2>
+        <h3>{item.producer}</h3>
         <p className={`paintings-type ${item.paintings_type}`}>
           {item.paintings_type}
         </p>
