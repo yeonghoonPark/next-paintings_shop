@@ -31,6 +31,7 @@ export default async function Header() {
               <span title='My Mileage'>
                 <Link
                   href={`/my_page/${signedUser._id}/my_mileage?search=my_mileage`}
+                  aria-label='Mileage'
                 >
                   <FaCoins className='fa-coins' />
                 </Link>
@@ -38,6 +39,7 @@ export default async function Header() {
               <span title='My Favorites'>
                 <Link
                   href={`/my_page/${signedUser._id}/my_favorite?search=my_favorite`}
+                  aria-label='Favorites'
                 >
                   <FaHeart className='fa-heart' />
                 </Link>
@@ -45,6 +47,7 @@ export default async function Header() {
               <span title='My Cart'>
                 <Link
                   href={`/my_page/${signedUser._id}/my_cart?search=my_cart`}
+                  aria-label='Cart'
                 >
                   <FaShoppingCart className='fa-shopping-cart' />
                 </Link>
