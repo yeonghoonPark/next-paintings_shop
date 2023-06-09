@@ -170,7 +170,7 @@ export default function ProductDetail({ data, _id, session, signedUser }) {
                   {data.is_new && (
                     <img
                       src='/images/mark/new_mark.png'
-                      alt='new_mark'
+                      alt='new product'
                       title='New'
                       style={{ width: "20px", marginLeft: "1rem" }}
                     />

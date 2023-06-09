@@ -52,7 +52,11 @@ export default function MyFavoriteSection({ session }) {
                 {cV?.paintings_type}
               </span>
               {cV.is_new && (
-                <img className='is-new' src='/images/mark/new_mark.png' />
+                <img
+                  className='is-new'
+                  src='/images/mark/new_mark.png'
+                  alt='new product'
+                />
               )}
               <span className='size'>{cV?.size} (cm)</span>
             </p>

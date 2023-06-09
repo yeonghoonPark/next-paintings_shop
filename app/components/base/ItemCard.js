@@ -24,7 +24,11 @@ export default function ItemCard({ item }) {
         </p>
         <p>{item.size} (cm)</p>
         {item.is_new && (
-          <img className='new_mark' src={"/images/mark/new_mark.png"} />
+          <img
+            className='new_mark'
+            src={"/images/mark/new_mark.png"}
+            alt='new product'
+          />
         )}
         <hr className='item-hr' />
         {item.stock === "0" ? (
