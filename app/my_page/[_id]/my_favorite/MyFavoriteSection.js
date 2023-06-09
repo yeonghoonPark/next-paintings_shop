@@ -31,7 +31,10 @@ export default function MyFavoriteSection({ session }) {
     return favoriteList.map((cV) => {
       return (
         <li key={cV._id}>
-          <label htmlFor={`${cV.product_name}`}>
+          <label
+            htmlFor={`${cV.product_name}`}
+            aria-label={`check ${cV.product_name}`}
+          >
             <input
               id={`${cV.product_name}`}
               type='checkbox'
@@ -144,7 +147,11 @@ export default function MyFavoriteSection({ session }) {
           ) : (
             <>
               <div className='checkbox-group'>
-                <label htmlFor='check-all-item' onClick={onHandleAllCheck}>
+                <label
+                  htmlFor='check-all-item'
+                  aria-label='check-all-item'
+                  onClick={onHandleAllCheck}
+                >
                   <input id='check-all-item' type='checkbox' />
                 </label>
                 <button type='text' className='btn' onClick={onHandleDeleteBtn}>
