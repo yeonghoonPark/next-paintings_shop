@@ -695,12 +695,12 @@ header {
   //          new-arrival
   //=================================
   .new-arrival {
-    h2 {
-      padding: 0.75rem 0;
+    .new-arrival-title {
+      padding: 2rem 0 1.5rem;
       font-family: "Lobster", cursive;
       font-weight: 300;
       font-size: 2rem;
-      text-align: left;
+      text-align: center;
       user-select: none;
     }
   }
