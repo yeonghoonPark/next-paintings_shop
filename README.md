@@ -12,7 +12,7 @@
 - DB생성 및 관리
 - NextJS(Frontend, Backend)와 MongoDB(Database)간의 CURD구현
 - SEO 최적화
-- page별로 상황에 맞는 SSR, ISR, SSG 설정(refactoring 예정..)
+- page별로 상황에 맞는 SSR, ISR, SSG 설정(refactoring..)
 
 <br/>
 
